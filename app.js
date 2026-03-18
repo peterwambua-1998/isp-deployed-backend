@@ -34,7 +34,9 @@ const app = express();
 
 // ── Security & Middleware ──────────────────────────────────────────────────
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(cors());
+app.use(cors({
+  origin: ['https://isp-deployed-frontend.vercel.app/', 'http://localhost:5173']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined', { stream: { write: (m) => logger.info(m.trim()) } }));
