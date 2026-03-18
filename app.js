@@ -54,9 +54,9 @@ app.use('/api/auth/', authLimiter);
 // Serves /public/hotspot.html at GET /hotspot
 // MikroTik walled-garden redirects customers to:
 //   http(s)://yourdomain.com/hotspot?mac=$(mac)&ip=$(ip)&router_id=<uuid>
-app.use('/public', express.static(path.join(__dirname, '..', 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.get('/hotspot', (_req, res) =>
-  res.sendFile(path.join(__dirname, '..', 'public', 'hotspot.html'))
+  res.sendFile(path.join(__dirname, 'public', 'hotspot.html'))
 );
 
 // ── PUBLIC: Provision endpoints (MikroTik calls these — no JWT auth) ───────
